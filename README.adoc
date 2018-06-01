@@ -1,0 +1,55 @@
+= MSOOrchestrator
+// Settings
+:idprefix:
+:idseparator: -
+//ifndef::env-github[:icons: font]
+ifdef::env-github,env-browser[]
+:toc: macro
+:toclevels: 1
+endif::[]
+ifdef::env-github[]
+:branch: master
+:status:
+:outfilesuffix: .adoc
+:!toc-title:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:icons:
+:uri-cloudify-cli: https://docs.cloudify.co/4.3.0/index.html
+:uri-orchestrator-cli: https://github.com/MSO4SC/MSOOrchestrator-CLI
+:uri-docker-image: https://hub.docker.com/r/mso4sc/orchestrator/
+
+{uri-cloudify-cli}[Cloudify Manager] for MSO4SC.
+
+
+== Installation
+
+MSOOrchestrator offers a bash script for Centos 7 and a docker image.
+
+.Minimum Requirements
+* vCPUs 2
+* RAM 4GB
+* Storage 5GB
+
+.Recommended Requirements
+* vCPUs 8
+* RAM 16GB
+* Storage 64GB
+
+=== Docker
+
+At {uri-docker-image}[Docker Hub] you can find the latest build image to start using the CLI.
+
+With __docker compose__ it is possible to have a working orchestrator in 6 minutes. Under the docker folder, copy `template.env` to `.env` and edit it with the host ip and the admin password. Then run `docker-compose up -d`.
+
+=== Bash install
+
+To install the orchestrator on a Centos 7 machine, the script `centos-install-cfy-manager.sh` automates the process. It receives as arguments the host ip and the admin password. The installation process will take several minutes.
+
+== Usage
+
+The orchestrator can be controlled by the {uri-orchestrator-cli}[CLI]. 

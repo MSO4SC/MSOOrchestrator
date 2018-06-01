@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    manager:
+        container_name: manager
+        image: mso4sc/orchestrator:18.2.28
+        restart: always
+        ports:
+            - "2222:22"
+            - "80:80"
+            - "443:443"
+            - "5671:5671"
+            - "5672:5672"
+            - "15672:15672"
+            - "9200:9200"
+            - "5432:5432"
+            - "8086:8086"
+            - "999:999"
+        security_opt:
+            - seccomp:unconfined
+        cap_add:
+            - sys_admin
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        tmpfs:
+            - /run
+            - /run/lock
+        environment:
+            - ORCHESTRATOR_IP=$ORCHESTRATOR_IP
+            - ADMIN_PASSWD=$ADMIN_PASSWD

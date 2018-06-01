@@ -1,0 +1,10 @@
+[Unit]
+Description=Install / configuration of the cloudify manager
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/install_manager.sh
+
+[Install]
+WantedBy=default.target
